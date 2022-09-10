@@ -33,6 +33,8 @@ def get_location(user_input):
     if location_data["Country"] != "United States":
         return("For the sake of this project, we will not be showing the IP addresses outside of the U.S")
     else:
-        return location_data
+        return ("IP: " + location_data["IP"] + "\nCity: " + location_data["City"] + "\nState: " + location_data["State"] + "\nCountry: " + location_data["Country"] + 
+                "\nCountry Pop.: " + str(location_data["Country Population"]) + "\nLatitude: " + str(location_data["latitude"]) + "\nLongitude: " + str(location_data["longitude"]) + "\nTime Zone: " +
+                location_data["Time Zone"])
 
 print(get_location("173.21.145.231"))
