@@ -1,6 +1,7 @@
 import hikari
 import lightbulb
 import ip_info
+import link_malware_checker
 
 bot = lightbulb.BotApp(
     token='', default_enabled_guilds=(1017526173061881946))
@@ -36,5 +37,12 @@ async def add(ctx):
 @lightbulb.implements(lightbulb.SlashCommand)
 async def iptoloc(ctx):
     await ctx.respond(ip_info.get_location(ctx.options.ip))
+
+@bot.command
+@lightbulb.option('url', 'Enter the url of a website you want to check', type = str)
+@lightbulb.command('linkchecker', 'Checks if a link is safe to use. Risk Score: 0 = No Risk, 100 = High Risk.')
+@lightbulb.implements(lightbulb.SlashCommand)
+async def linkchecker(ctx):
+    await ctx.respond(link_malware_checker.determine_malicious_link(ctx.options.url))
 
 bot.run()
