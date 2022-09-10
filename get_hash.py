@@ -1,4 +1,9 @@
+from turtle import up
 import requests
+import hashlib
+
+file_url = 'https://cdn.discordapp.com/attachments/1018003056077574195/1018245724552564888/sillyfile.txt'
+api_key = '93d85cbb593276a2a1eec152078bcd97df0c84ff42bd092b14455aa9ff152b3f'
 
 def get_hash(user_input):
     ip_address = user_input
@@ -13,4 +18,25 @@ def get_hash(user_input):
     }
     return hash_data
 
-print(get_hash(""))
+
+def upload_file(file):
+    data = requests.get(file)
+    hash = hashlib.sha256(data.text.encode('UTF-8')).hexdigest()
+    file = {"file": data.text}
+    url = f'https://www.virustotal.com/api/v3/files'
+    headers = {"Accept": "application/json", "x-apikey":api_key}
+    response = requests.post(url, files=file, headers=headers)
+
+    return hash
+
+
+def file_info():
+    id = upload_file(file_url)
+    url = f'https://www.virustotal.com/api/v3/files/{str(id)}'
+    print(url)
+    headers = {"Accept": "application/json", "x-apikey":api_key}
+    response = requests.get(url, headers=headers)
+    print(response.text)
+
+
+file_info()
