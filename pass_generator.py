@@ -24,4 +24,4 @@ def generate_random_password(length):
 
 
 ## invoking the function (to be removed and replaced with the bot command input)
-print(generate_random_password(14))
+#print(generate_random_password(14))

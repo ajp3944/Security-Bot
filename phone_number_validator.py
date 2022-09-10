@@ -48,4 +48,4 @@ def determine_malicious_phone_num(phone_num):
         }
         return phone_num_info
 
-print(determine_malicious_phone_num(13013074602)) # put number here
+#print(determine_malicious_phone_num(13013074602)) # put number here
