@@ -15,18 +15,5 @@ async def print_message(event):
 async def bot_started(event):
     print('Bot has started!')
 
-@bot.command
-@lightbulb.command('ping', 'Say pong!')
-@lightbulb.implements(lightbulb.SlashCommand)
-async def ping(ctx):
-    await ctx.respond('Pong!')
-
-@bot.command
-@lightbulb.option('num1', 'The first number', type = int)
-@lightbulb.option('num2', 'The second number', type = int)
-@lightbulb.command('add', 'Add two numbers together')
-@lightbulb.implements(lightbulb.SlashCommand)
-async def add(ctx):
-    await ctx.respond(ctx.options.num1 + ctx.options.num2)
-
+bot = hikari.GatewayBot(token='MTAxNzk5Njk2MjI2NTU3NTQ5NQ.GxrtRN.o-LJ-grUAAK-GikSyuHjd0vjkgwsN9C3OEvby8')
 bot.run()
