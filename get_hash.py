@@ -2,7 +2,7 @@ from turtle import up
 import requests
 import hashlib
 
-file_url = 'https://cdn.discordapp.com/attachments/1018003056077574195/1018245724552564888/sillyfile.txt'
+#file_url = 'https://cdn.discordapp.com/attachments/1018003056077574195/1018245724552564888/sillyfile.txt'
 api_key = '93d85cbb593276a2a1eec152078bcd97df0c84ff42bd092b14455aa9ff152b3f'
 
 def get_hash(user_input):
@@ -30,13 +30,11 @@ def upload_file(file):
     return hash
 
 
-def file_info():
+def file_info(file_url):
     id = upload_file(file_url)
     url = f'https://www.virustotal.com/api/v3/files/{str(id)}'
     print(url)
     headers = {"Accept": "application/json", "x-apikey":api_key}
     response = requests.get(url, headers=headers)
-    print(response.text)
-
-
-file_info()
+    message = response.json().get("data").get("attributes")
+    return "File Name: " + message.get("names")[0] + "\nType Description: " + message.get("type_description") + "\nSize: " + str(message.get("size")) + "\nVhash: " + message.get("vhash") + "\nHarmful Count: " + str(message.get("total_votes").get("harmless")) + "\nMalicious Count: " + str(message.get("total_votes").get("malicous"))

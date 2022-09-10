@@ -8,15 +8,15 @@ import phone_number_validator
 import get_hash
 
 bot = lightbulb.BotApp(
-    token='', default_enabled_guilds=(1017526173061881946))
+    token='MTAxNzk5Njk2MjI2NTU3NTQ5NQ.GxrtRN.o-LJ-grUAAK-GikSyuHjd0vjkgwsN9C3OEvby8', default_enabled_guilds=(1017526173061881946))
 
 #.\env\Scripts\activate
 #python bot.py
 
 @bot.listen(hikari.GuildMessageCreateEvent)
 async def print_message(event):
-    print(event.message.attachments[0].url)
-    #print(event.author.username + " " + event.content)
+    #print(event.message.attachments[0].url)
+    print(str(event.author) + " " + event.content)
 
 @bot.listen(hikari.StartedEvent)
 async def bot_started(event):
@@ -78,5 +78,20 @@ async def uploadfile(ctx):
 @lightbulb.implements(lightbulb.SlashCommand)
 async def gethash(ctx):
     await ctx.respond(get_hash.get_hash(ctx.options.hash))
+
+"""@bot.command
+@lightbulb.option('messageid', 'Discord message id (Right click message in developer mode).')
+@lightbulb.command('geturlfromid', 'Input a discord message id to get url.')
+@lightbulb.implements(lightbulb.SlashCommand)
+async def geturlfromid(ctx)
+    messa"""
+
+@bot.command
+@lightbulb.option('attachment', 'Input url of file. Use /getfileurl command to get file url.', type = hikari.OptionType.ATTACHMENT)
+@lightbulb.command('checkfile', 'Scans file for protentional threats.')
+@lightbulb.implements(lightbulb.SlashCommand)
+async def checkfile(ctx):
+    print(ctx.options.attachment.url)
+    await ctx.respond(get_hash.file_info(ctx.options.attachment.url))
 
 bot.run()
