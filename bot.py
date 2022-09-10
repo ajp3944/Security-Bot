@@ -3,7 +3,7 @@ import lightbulb
 import ip_info
 
 bot = lightbulb.BotApp(
-    token='MTAxNzk5Njk2MjI2NTU3NTQ5NQ.GxrtRN.o-LJ-grUAAK-GikSyuHjd0vjkgwsN9C3OEvby8', default_enabled_guilds=(1017526173061881946))
+    token='', default_enabled_guilds=(1017526173061881946))
 
 #.\env\Scripts\activate
 #python bot.py
