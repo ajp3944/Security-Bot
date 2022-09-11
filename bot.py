@@ -15,10 +15,10 @@ bot = lightbulb.BotApp(token='MTAxNzk5Njk2MjI2NTU3NTQ5NQ.GxrtRN.o-LJ-grUAAK-GikS
 #.\env\Scripts\activate
 #python bot.py
 
-@bot.listen(hikari.GuildMessageCreateEvent)
+"""@bot.listen(hikari.GuildMessageCreateEvent)
 async def print_message(event):
     #print(event.message.attachments[0].url)
-    print(str(event.author) + " " + event.content)
+    print(str(event.author) + " " + event.content)"""
 
 @bot.listen(hikari.StartedEvent)
 async def bot_started(event):

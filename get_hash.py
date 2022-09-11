@@ -31,11 +31,12 @@ def upload_file(file):
     return hash
 
 ## Used for retrieving information about a file from virustotal
-def file_info():
+def file_info(file_url):
     id = upload_file(file_url)
     url = f'https://www.virustotal.com/api/v3/files/{str(id)}'
     #print(url)
     headers = {"Accept": "application/json", "x-apikey":api_key}
     response = requests.get(url, headers=headers)
     message = response.json().get("data").get("attributes")
-    return "File Name: " + message.get("names")[0] + "\nType Description: " + message.get("type_description") + "\nSize: " + str(message.get("size")) + "\nVhash: " + message.get("vhash") + "\nHarmful Count: " + str(message.get("total_votes").get("harmless")) + "\nMalicious Count: " + str(message.get("total_votes").get("malicous"))
+    print(response.text)
+    return "File Name: " + str(message.get("names")) + "\nType Description: " + message.get("type_description") + "\nSize: " + str(message.get("size")) + "\nVhash: " + message.get("vhash") + "\nHarmful Count: " + str(message.get("total_votes").get("harmless")) + "\nMalicious Count: " + str(message.get("total_votes").get("malicous"))
