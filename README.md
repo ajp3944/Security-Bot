@@ -14,6 +14,8 @@ information that we felt was too sensitive
 Must Install:
 Hikari | Command: py -3 -m pip install -U hikari
 Requests | Command: pip install requests
+Hikari-Lightbulb | Command: python -m pip install -U hikari-lightbulb
+mySQL Connector | Command: pip install mysql-connector-python
 
 ------------------------------------------------------------------------------------------
 
@@ -23,5 +25,13 @@ Link Checker: https://www.ipqualityscore.com/documentation/malicious-url-scanner
 Phone Number Checker: https://www.ipqualityscore.com/documentation/phone-number-validation-api/overview
 IP Info: https://ipapi.co/
 Get Hash Info: https://freerestapi.herokuapp.com/
+
+Need API Key to View Sites:
+Malware File Checker: https://www.virustotal.com/api/v3/files
+URL Shortener: https://url-shortener-service.p.rapidapi.com/shorten 
+Encrypt Base 32: https://freerestapi.herokuapp.com/api/base32?encode=
+Decrypt Base 32: https://freerestapi.herokuapp.com/api/base32?decode=
+Encrypt Base 64: https://freerestapi.herokuapp.com/api/base64?encode=
+Decrypt Base 64: https://freerestapi.herokuapp.com/api/base64?decode=
 
 ------------------------------------------------------------------------------------------
