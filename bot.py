@@ -5,12 +5,12 @@ import ip_info
 import link_malware_checker
 import pass_generator
 import phone_number_validator
+import email_validator
 import get_hash
 import url_shortener
 import base_encode_decode
 
-bot = lightbulb.BotApp(
-    token='', default_enabled_guilds=(1017526173061881946))
+bot = lightbulb.BotApp(token='MTAxNzk5Njk2MjI2NTU3NTQ5NQ.GxrtRN.o-LJ-grUAAK-GikSyuHjd0vjkgwsN9C3OEvby8', default_enabled_guilds=(1017526173061881946))
 
 #.\env\Scripts\activate
 #python bot.py
@@ -24,18 +24,11 @@ async def print_message(event):
 async def bot_started(event):
     print('Bot has started!')
 
-@bot.command
+"""@bot.command
 @lightbulb.command('ping', 'Say pong!')
 @lightbulb.implements(lightbulb.SlashCommand)
 async def ping(ctx):
-    await ctx.respond('Pong!')
-@bot.command
-@lightbulb.option('num1', 'The first number', type = int)
-@lightbulb.option('num2', 'The second number', type = int)
-@lightbulb.command('add', 'Add two numbers together')
-@lightbulb.implements(lightbulb.SlashCommand)
-async def add(ctx):
-    await ctx.respond(ctx.options.num1 + ctx.options.num2)
+    await ctx.respond('Pong!')"""
 
 @bot.command
 @lightbulb.option('ip', 'Enter the IP address.', type = str)
@@ -65,6 +58,13 @@ async def passwordgen(ctx):
 async def phonenumchecker(ctx):
     await ctx.respond(phone_number_validator.determine_malicious_phone_num(ctx.options.phonenum))
 
+@bot.command
+@lightbulb.option('email', 'Enter in a email.')
+@lightbulb.command('emailchecker', 'Checks if an email is legitimate and non-malicious.', ephemeral = True)
+@lightbulb.implements(lightbulb.SlashCommand)
+async def emailchecker(ctx):
+    await ctx.respond(email_validator.determine_malicious_email(ctx.options.email))
+
 
 @bot.command
 @lightbulb.option('hash', 'Input to get hash.')
@@ -90,28 +90,28 @@ async def linkshortener(ctx):
 
 @bot.command
 @lightbulb.option('message', 'Type in a message.', type = str)
-@lightbulb.command('encode32', 'Encode a message in base32.', ephemeral = True)
+@lightbulb.command('encode32', 'Encodes a message in base32.', ephemeral = True)
 @lightbulb.implements(lightbulb.SlashCommand)
 async def encode32(ctx):
     await ctx.respond(base_encode_decode.encode_32(ctx.options.message))
 
 @bot.command
 @lightbulb.option('message', 'Type in a message.', type = str)
-@lightbulb.command('decode32', 'Decode a message in base32.', ephemeral = True)
+@lightbulb.command('decode32', 'Decodes a message in base32.', ephemeral = True)
 @lightbulb.implements(lightbulb.SlashCommand)
 async def decode32(ctx):
     await ctx.respond(base_encode_decode.decode_32(ctx.options.message))
 
 @bot.command
 @lightbulb.option('message', 'Type in a message.', type = str)
-@lightbulb.command('encode64', 'Encode a message in base64.', ephemeral = True)
+@lightbulb.command('encode64', 'Encodes a message in base64.', ephemeral = True)
 @lightbulb.implements(lightbulb.SlashCommand)
 async def encode64(ctx):
     await ctx.respond(base_encode_decode.encode_64(ctx.options.message))
 
 @bot.command
 @lightbulb.option('message', 'Type in a message.', type = str)
-@lightbulb.command('decode64', 'Decode a message in base64.', ephemeral = True)
+@lightbulb.command('decode64', 'Decodes a message in base64.', ephemeral = True)
 @lightbulb.implements(lightbulb.SlashCommand)
 async def decode64(ctx):
     await ctx.respond(base_encode_decode.decode_64(ctx.options.message))

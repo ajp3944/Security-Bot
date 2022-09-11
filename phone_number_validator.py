@@ -46,6 +46,7 @@ def determine_malicious_phone_num(phone_num):
             "Zip code": response.get("zip_code"),
             "Time Zone": response.get("timezone"),
         }
-        return phone_num_info
+        #print(phone_num_info)
+        return "Phone Number: " + phone_num_info["Formatted Phone Number"] + "\nCarrier: " + phone_num_info["Carrier"] + "\nCity: " + phone_num_info["City"] + "\nRegion: " + phone_num_info["Region"] + "\nCountry: " + phone_num_info["Country"] + "\nTime Zone: " + phone_num_info["Time Zone"] + "\nSpam Number: " + str(phone_num_info["Spam Number"]) + "\nLeaked: " + str(phone_num_info["Leaked in Breach or Act of Compromise"]) + "\nRisky: " + str(phone_num_info["Risky"]) + "\nDo Not Call List: " + str(phone_num_info["Do Not Call List"]) + "\nFraud Score: " + str(phone_num_info["Fraud Score"])
 
 #print(determine_malicious_phone_num(13013074602)) # put number here

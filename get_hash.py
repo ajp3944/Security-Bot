@@ -34,7 +34,7 @@ def upload_file(file):
 def file_info():
     id = upload_file(file_url)
     url = f'https://www.virustotal.com/api/v3/files/{str(id)}'
-    print(url)
+    #print(url)
     headers = {"Accept": "application/json", "x-apikey":api_key}
     response = requests.get(url, headers=headers)
     message = response.json().get("data").get("attributes")
