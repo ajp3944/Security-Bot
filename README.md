@@ -4,6 +4,7 @@ A discord bot that will have some of the functionalities of an antivirus and mor
 -----------------------------------------------------------------------------------------------------
 
 THIS BOT DOES NOT SAVE ANY INFORMATION OTHER THAN WHAT IS PUT INTO PASSWORD MANAGER
+    - Password manager has yet to be implemented
 
 Information Checkers:
 This bot uses information retrieved by API, we did not include any
