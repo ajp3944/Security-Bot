@@ -5,7 +5,7 @@ def encode_32(user_input):
     response_data = {
         "Results": response.get("result"),
     }
-    return response_data
+    return "Your encode message: " + response.get("result")[0].get('encode')
 print(encode_32('1234'))
 
 
@@ -14,7 +14,7 @@ def decode_32(user_input):
     response_data = {
         "Results": response.get("result"),
     }
-    return response_data
+    return "Your decode message: " + response.get("result")[0].get('encode')
 print(decode_32('64t36d0'))
 
 
@@ -23,7 +23,7 @@ def encode_64(user_input):
     response_data = {
         "Results": response.get("result"),
     }
-    return response_data
+    return "Your encode message: " + response.get("result")[0].get('encode')
 print(encode_64('1234'))
 
 
@@ -32,5 +32,5 @@ def decode_64(user_input):
     response_data = {
         "Results": response.get("result"),
     }
-    return response_data
+    return "Your decode message: " + response.get("result")[0].get('encode')
 print(decode_64('MTIzNA=='))

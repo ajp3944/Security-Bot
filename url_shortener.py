@@ -10,8 +10,8 @@ def file_info(user_input):
 	"X-RapidAPI-Host": "url-shortener-service.p.rapidapi.com"
 }
 
-    response = requests.request("POST", url, data=payload, headers=headers)
+    response = requests.request("POST", url, data=payload, headers=headers).json()
 
-    print(response.text)
+    return "Here your shorten link " + response.get("result_url")
 
-file_info('https://google.com')
+#file_info('https://google.com')
