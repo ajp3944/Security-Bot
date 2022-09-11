@@ -10,7 +10,10 @@ import get_hash
 import url_shortener
 import base_encode_decode
 
-bot = lightbulb.BotApp(token='', default_enabled_guilds=(1017526173061881946))
+TOKEN = ''
+DISCORD_ID = 0
+
+bot = lightbulb.BotApp(token=TOKEN, default_enabled_guilds=(DISCORD_ID))
 
 #.\env\Scripts\activate
 #python bot.py
